@@ -267,7 +267,7 @@ RiakRequest.prototype.do_request = function () {
     }
 
     pool_options = {
-        path: "/riak/" + encodeURIComponent(this.bucket) + "/" + encodeURIComponent(this.key) + qs,
+        path: "/riak/" + encodeURIComponent(this.bucket) + "/" + (this.key ? encodeURIComponent(this.key) : "") + qs,
         headers: this.client.headers(this.options.http_headers),
         retry_not_found: this.should_retry
     };
